@@ -14,11 +14,9 @@ function compareArrays(arr1, arr2) {
 // Задача 2. Фильтрация и преобразование массива
 
   function getUsersNamesInAgeRange(users, gender) {
-  const filteredUsers = users.filter(user => user.gender === gender);
-  const totalAge = filteredUsers.reduce((sum, user) => sum + user.age, 0);
-  const averageAge = filteredUsers.length > 0 ? totalAge / filteredUsers.length : 0;
-  
-    return averageAge;
+    return users.filter(user => user.gender === gender)
+    .map(user => user.age)
+    .reduce((acc, age, index, arr) => acc + age / arr.length, 0);
   }
   
   // Пример вызова:
